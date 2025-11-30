@@ -1,0 +1,100 @@
+
+using System;
+using System.Collections.Generic;
+
+namespace OnlineFoodDelivery
+{
+    class Program
+    {
+        
+
+        static Dictionary<int, (string Name, int Price)> MENU = new Dictionary<int, (string, int)>()
+        {
+            {1, ("Burger", 200)},
+            {2, ("Pizza", 500)},
+            {3, ("Sandwich", 150)}
+        };
+
+     
+        static Dictionary<int, (string Item, int Quantity, int Total, string Status)> ORDERS
+            = new Dictionary<int, (string, int, int, string)>();
+
+        static void ShowMenu()
+        {
+            Console.WriteLine("\n--- Menu ---");
+            foreach (var item in MENU)
+            {
+                Console.WriteLine($"{item.Key}. {item.Value.Name} - Rs {item.Value.Price}");
+            }
+        }
+
+        static void PlaceOrder()
+        {
+            ShowMenu();
+            Console.Write("Enter item number to order: ");
+            int choice = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter quantity: ");
+            int quantity = int.Parse(Console.ReadLine());
+
+            if (MENU.ContainsKey(choice))
+            {
+                Random rnd = new Random();
+                int orderId = rnd.Next(1000, 9999);
+                int total = MENU[choice].Price * quantity;
+                ORDERS.Add(orderId, (MENU[choice].Name, quantity, total, "Pending"));
+
+                Console.WriteLine($"Order placed successfully! Order ID: {orderId}, Total: Rs {total}");
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice!");
+            }
+        }
+
+        static void TrackOrder()
+        {
+            Console.Write("Enter your Order ID to track: ");
+            int orderId = int.Parse(Console.ReadLine());
+
+            if (ORDERS.ContainsKey(orderId))
+            {
+                Console.WriteLine($"Order Status: {ORDERS[orderId].Status}");
+            }
+            else
+            {
+                Console.WriteLine("Order ID not found!");
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+                Console.WriteLine("\n--- Online Food Delivery ---");
+                Console.WriteLine("1. Place Order");
+                Console.WriteLine("2. Track Order");
+                Console.WriteLine("3. Exit");
+                Console.Write("Choose an option: ");
+
+                int option = int.Parse(Console.ReadLine());
+
+                switch (option)
+                {
+                    case 1:
+                        PlaceOrder();
+                        break;
+                    case 2:
+                        TrackOrder();
+                        break;
+                    case 3:
+                        Console.WriteLine("Thank you for using our service!");
+                        return;
+                    default:
+                        Console.WriteLine("Invalid option!");
+                        break;
+                }
+            }
+        }
+    }
+}
