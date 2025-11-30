@@ -1,0 +1,89 @@
+ SRS Document in IEEE Format 
+Software Requirements Specification (SRS)
+1. Introduction
+1.1 Purpose
+The purpose of this document is to define the functional and non-functional requirements of the Online Food Delivery & Restaurant Management System. This system allows customers to order food from multiple restaurants, track orders in real-time, make secure payments, and rate their food. Restaurants can manage menus, process orders, and assign delivery personnel. Delivery personnel can accept delivery requests and update order status.
+1.2 Scope
+The system will provide a unified platform for customers, restaurants, and delivery personnel. It supports multiple concurrent users and ensures secure handling of customer data and payments. Key features include:
+•	Browsing restaurants and menus
+•	Placing and tracking orders
+•	Secure online payments
+•	Menu management for restaurants
+•	Delivery assignment and status updates
+•	Order history and rating
+1.3 Definitions, Acronyms, and Abbreviations
+Term	Definition
+SRS	Software Requirements Specification
+FR	Functional Requirement
+NFR	Non-Functional Requirement
+GUI	Graphical User Interface
+SSL	Secure Sockets Layer
+1.4 References
+1.	IEEE Standard 830-1998, “IEEE Recommended Practice for Software Requirements Specifications”
+2.	Online Food Delivery System research articles
+3.	Payment Gateway documentation
+2. Overall Description
+2.1 Product Perspective
+This system is a standalone application integrating customer, restaurant, and delivery functionalities. It interacts with payment gateways for secure transactions.
+2.2 Product Functions
+•	Customer registration and login
+•	Restaurant registration and menu management
+•	Placing, tracking, and rating orders
+•	Payment processing
+•	Assigning delivery personnel and updating status
+2.3 User Classes and Characteristics
+User Type	Characteristics
+Customer	Can browse menu, place orders, make payments, track orders
+Restaurant	Can add/remove menu items, process orders
+Delivery Personnel	Can view assigned orders, update delivery status
+Administrator	(Optional) Can manage users and system logs
+2.4 Operating Environment
+•	Windows or Linux OS
+•	Python 3.x runtime or .NET Framework for C#
+•	Internet connection for real-time order and payment updates
+2.5 Design and Implementation Constraints
+•	Must use secure connections for payment (SSL/TLS)
+•	Must support at least 500 concurrent users
+•	Database to store user, order, and payment data securely
+2.6 Assumptions and Dependencies
+•	Payment gateway will be reliable and available
+•	Users have valid internet access
+•	Restaurants regularly update their menus
+3. Functional Requirements
+ID	Requirement
+FR1	Customer can browse restaurants and view menu items
+FR2	Customer can place orders and view order details
+FR3	Customer can make secure online payments
+FR4	Restaurant can add, remove, and update menu items
+FR5	Restaurant can process and confirm orders
+FR6	Delivery personnel can accept and update delivery status
+FR7	System maintains order history and ratings
+FR8	System sends real-time notifications to customers and delivery personnel
+
+4. Non-Functional Requirements
+ID	Requirement
+NFR1	The system must ensure secure data transmission (SSL/TLS)
+NFR2	Payment transactions must be processed within 5 seconds
+NFR3	System must handle at least 500 simultaneous users
+NFR4	Logs of all transactions and orders must be maintained for auditing
+NFR5	System availability must be 99% uptime
+
+5. External Interface Requirements
+5.1 User Interfaces
+•	Simple web or console interface for customers, restaurants, and delivery personnel
+•	Menu display, order placement, payment confirmation, and delivery tracking
+5.2 Hardware Interfaces
+•	Standard PC, smartphone, or tablet
+•	Internet connectivity
+5.3 Software Interfaces
+•	Database (MySQL, SQLite, or similar)
+•	Payment Gateway API (e.g., Stripe, PayPal)
+5.4 Communication Interfaces
+•	HTTPS for secure communication
+•	Email/SMS API for notifications (optional)
+6. System Features
+1.	Order Management: Customers can place, cancel, and track orders.
+2.	Payment Processing: Secure integration with payment gateway.
+3.	Menu Management: Restaurants can manage menu items.
+4.	Delivery Management: Assign delivery personnel and update order status.
+5.	Rating and Feedback: Customers can rate the food and delivery service.
